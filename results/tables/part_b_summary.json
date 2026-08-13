@@ -1,0 +1,38 @@
+{
+  "product": "NoBearTrader",
+  "n_funds": 12,
+  "families": [
+    "Combined",
+    "Equity",
+    "Crypto"
+  ],
+  "methods": [
+    "Minimum-Variance",
+    "Maximum-Sharpe",
+    "Risk Parity",
+    "Equal Weight"
+  ],
+  "equity_days": 1006,
+  "first_live_date": "2021-01-01",
+  "last_date": "2023-12-31",
+  "annualisation": {
+    "Combined": "sqrt(252)",
+    "Equity": "sqrt(252)",
+    "Crypto": "sqrt(365)"
+  },
+  "risk_free_rate": 0.0,
+  "rebalance": "monthly (first trading day of the month)",
+  "transaction_costs": 0.0,
+  "sentiment": {
+    "model": "VADER + finance lexicon extension",
+    "no_news_treatment": "neutral (0)",
+    "lag": "signal first usable the trading day after the aligned day",
+    "ticker_days_scored": 37962,
+    "lexicon_terms_added": 202
+  },
+  "fusion": {
+    "rule": "equity-weight tilt proportional to recent sector sentiment",
+    "strength": 0.25,
+    "lookback_days": 5
+  }
+}
